@@ -1,0 +1,38 @@
+include /_mixins
+
+doctype html
+html(lang='en-us')
+  head
+    title= title
+    +stylesheet_link_tag('main')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN' crossorigin='anonymous')
+    +javascript_include_tag('vendor/all')
+    +javascript_include_tag('handlebars_templates')
+
+  body
+    header
+      a(class='logo' href='/')
+        img(src='/images/logo.png' alt='logo')
+      .cart
+        a(href='/')
+          span(class='left')
+            | Shopping Cart
+          span(class='right')
+            span(class='count')
+              |  item
+
+    main
+      #cart
+      #content
+        ul#items
+
+      block content
+
+    footer
+    
+    +javascript_include_tag('application')
+    +javascript_include_tag('models/item')
+    +javascript_include_tag('collections/items')
+    +javascript_include_tag('views/item')
+    script(type='text/javascript').
+      App.init();
