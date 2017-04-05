@@ -11,28 +11,28 @@ html(lang='en-us')
 
   body
     header
-      a(class='logo' href='/')
+      a.logo(href='/')
         img(src='/images/logo.png' alt='logo')
       .cart
         a(href='/')
-          span(class='left')
+          span.left
             | Shopping Cart
-          span(class='right')
-            span(class='count')
-              |  item
-
+          span.right
+            span.count
+            | item
+    
     main
       #cart
       #content
-        ul#items
-
-      block content
+        block content
 
     footer
     
     +javascript_include_tag('application')
     +javascript_include_tag('models/item')
-    +javascript_include_tag('collections/items')
-    +javascript_include_tag('views/item')
+    +javascript_include_tag('collections/items', 'collections/cart_items')
+    +javascript_include_tag('views/index', 'views/item', 'views/items', 'views/item_details', 'views/cart', 'views/cart_item')
+    +javascript_include_tag('router')
     script(type='text/javascript').
-      App.init();
+      App.init(!{JSON.stringify(menu)});
+

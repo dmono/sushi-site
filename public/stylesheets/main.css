@@ -203,13 +203,13 @@ main ul li {
   letter-spacing: 1px;
   color: #ab7829;
 }
-#items li header p {
+#items li p {
   margin: 0 0 20px 0;
   text-align: center;
   letter-spacing: 1px;
   color: #b0b0b0;
 }
-#items li header .add_cart {
+#items li .add_cart {
   display: block;
   padding: 13px 0;
   border-top: 1px dotted #b0b0b0;
@@ -219,14 +219,14 @@ main ul li {
   cursor: pointer;
   color: #d60041;
 }
-#items li header .add_cart:before {
+#items li .add_cart:before {
   content: '+';
   margin: 0 5px 0 0;
   display: inline-block;
   font-size: 14px;
   font-weight: bold;
 }
-#items li header .add_cart:hover {
+#items li .add_cart:hover {
   color: #fff;
   background: #d60041;
   transition: color 0.75s, background 0.75s;
