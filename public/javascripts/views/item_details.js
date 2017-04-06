@@ -28,7 +28,4 @@ var ItemDetailsView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
   },
-  initialize: function() {
-    // this.render();
-  },
 });

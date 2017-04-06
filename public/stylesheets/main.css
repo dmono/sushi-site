@@ -366,53 +366,38 @@ main ul li {
 #checkout > div.img_top {
   background-position: top;
 }
-#checkout > div.img_bottom,
-#checkout background-position: bottom,
+#checkout > div.img_bottom {
+  background-position: bottom;
+}
 #checkout > section {
   padding: 55px 100px;
   background: #fff;
 }
-#checkout > div.img_bottom h1,
-#checkout background-position: bottom h1,
 #checkout > section h1 {
   margin: 0 0 60px 0;
   font-size: 40px;
 }
-#checkout > div.img_bottom table,
-#checkout background-position: bottom table,
 #checkout > section table {
   width: 800px;
   border-collapse: collapse;
   text-align: left;
 }
-#checkout > div.img_bottom table thead,
-#checkout background-position: bottom table thead,
 #checkout > section table thead {
   text-transform: uppercase;
 }
-#checkout > div.img_bottom table tbody td,
-#checkout background-position: bottom table tbody td,
 #checkout > section table tbody td {
   border-top: 1px solid #b0b0b0;
   border-bottom: 1px solid #b0b0b0;
 }
-#checkout > div.img_bottom table tbody td img,
-#checkout background-position: bottom table tbody td img,
 #checkout > section table tbody td img {
   height: 100px;
 }
-#checkout > div.img_bottom table td:nth-child(2),
-#checkout background-position: bottom table td:nth-child(2),
 #checkout > section table td:nth-child(2) {
   font-size: 20px;
 }
-#checkout > div.img_bottom table td:nth-child(3),
-#checkout background-position: bottom table td:nth-child(3),
 #checkout > section table td:nth-child(3) {
   font-weight: bold;
 }
-#checkout > div.img_bottom table td:nth-child(3) .quantity_modifier,
-#checkout background-position: bottom table td:nth-child(3) .quantity_modifier,
 #checkout > section table td:nth-child(3) .quantity_modifier {
   margin: 0 10px;
   vertical-align: middle;
@@ -420,25 +405,17 @@ main ul li {
   font-size: 12px;
   cursor: pointer;
 }
-#checkout > div.img_bottom table td:nth-child(3) p,
-#checkout background-position: bottom table td:nth-child(3) p,
 #checkout > section table td:nth-child(3) p {
   display: inline-block;
 }
-#checkout > div.img_bottom table td:nth-child(4),
-#checkout background-position: bottom table td:nth-child(4),
 #checkout > section table td:nth-child(4) {
   font-size: 20px;
   letter-spacing: 2px;
   text-align: right;
 }
-#checkout > div.img_bottom table th:nth-child(4),
-#checkout background-position: bottom table th:nth-child(4),
 #checkout > section table th:nth-child(4) {
   text-align: right;
 }
-#checkout > div.img_bottom > p,
-#checkout background-position: bottom > p,
 #checkout > section > p {
   margin: 15px 0 0 0;
   text-align: right;
@@ -446,34 +423,24 @@ main ul li {
   text-transform: uppercase;
   color: #787878;
 }
-#checkout > div.img_bottom > p .total,
-#checkout background-position: bottom > p .total,
 #checkout > section > p .total {
   margin: 0 0 0 10px;
   font-size: 30px;
   letter-spacing: 2px;
   color: #000;
 }
-#checkout > div.img_bottom footer,
-#checkout background-position: bottom footer,
 #checkout > section footer {
   margin: 50px 0 0 0;
   text-align: right;
 }
-#checkout > div.img_bottom footer a,
-#checkout background-position: bottom footer a,
 #checkout > section footer a {
   color: #ff3170;
   text-transform: uppercase;
 }
-#checkout > div.img_bottom footer form,
-#checkout background-position: bottom footer form,
 #checkout > section footer form {
   display: inline-block;
   margin: 0 0 0 20px;
 }
-#checkout > div.img_bottom footer form input,
-#checkout background-position: bottom footer form input,
 #checkout > section footer form input {
   border: none;
   color: #fff;
@@ -484,8 +451,6 @@ main ul li {
   font-size: 14px;
   padding: 15px;
 }
-#checkout > div.img_bottom footer form input:hover,
-#checkout background-position: bottom footer form input:hover,
 #checkout > section footer form input:hover {
   background: linear-gradient(to bottom, #a90040 0%, #d60041 100%);
 }

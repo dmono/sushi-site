@@ -1,17 +1,18 @@
 var CartItems = Backbone.Collection.extend({
   addItem: function(item) {
-    var existingItem = this.get(item.get('id'));
+    var model = this.findWhere({ id: item.id }) || item.clone();
     var quantity;
-    var total;
 
-    if (existingItem) {
-      quantity = existingItem.get('quantity') + 1;
-      total = quantity * existingItem.get('price');
-      existingItem.set('quantity', quantity).set('total', total);
-      this.add(existingItem, { merge: true });
+    if (model.has('quantity')) {
+      this.changeQuantity(model, 1);
     } else {
-      this.add(item.clone().set('quantity', 1)).set('total', item.get('price'));
+      model.set('quantity', 1).set('total', model.get('price'));
+      this.add(model)
     }
+  },
+  changeQuantity: function(model, amount) {
+    model.set('quantity', Number(model.get('quantity')) + amount);
+    model.set('total', model.get('price') * model.get('quantity'));
   },
   destroyItem: function(id) {
     this.get(id).view.remove();
@@ -42,5 +43,6 @@ var CartItems = Backbone.Collection.extend({
   initialize: function() {
     this.on('destroy', this.destroyItem);
     this.on('empty', this.emptyCart);
+    this.on('updateQuantity', this.changeQuantity);
   }
 });
