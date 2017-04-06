@@ -92,6 +92,7 @@ main ul li {
   font-size: 14px;
 }
 #cart {
+  display: none;
   height: 120px;
   overflow: hidden;
   background: #000;
@@ -104,12 +105,28 @@ main ul li {
   font-size: 0;
 }
 #cart ul li {
+  position: relative;
   width: 100px;
   text-align: right;
   font-size: 11px;
 }
 #cart ul li img {
   width: 100%;
+}
+#cart ul li:hover {
+  cursor: pointer;
+}
+#cart ul li:hover:after {
+  position: absolute;
+  box-sizing: border-box;
+  height: 100px;
+  width: 100px;
+  padding: 30px;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.6);
+  content: url("/images/delete-x.png");
+  text-align: center;
 }
 #cart section {
   float: right;

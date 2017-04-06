@@ -10,6 +10,7 @@ var Router = Backbone.Router.extend({
     this.detailsView.render();
     this.$content = $('#content');
     this.$content.html(this.detailsView.el);
+    this.renderCart();
   },
   index: function() {
     // this.indexView = new IndexView();
@@ -26,11 +27,13 @@ var Router = Backbone.Router.extend({
     this.$content.html(this.itemsView.el);
   },
   renderCart: function() {
-    this.cartView = new CartView({
-      collection: App.cart,
-    });
+    if (App.cart.length > 0) {
+      this.cartView = new CartView({
+        collection: App.cart,
+      });
 
-    $('#cart').html(this.cartView.el);
+      $('#cart').slideDown();
+    }
   },
   initialize: function() {
     this.route(/^\/?$/, 'index');

@@ -1,12 +1,6 @@
 var CartItemView = Backbone.View.extend({
   tagName: 'li',
   template: App.templates.cart_item,
-  events: {
-    'click figure': 'destroyItem',
-  },
-  destroyItem: function(e) {
-    console.log('destroy me!');
-  },
   render: function() {
     var id = this.model.get('id');
     this.$el.attr('data-id', id);

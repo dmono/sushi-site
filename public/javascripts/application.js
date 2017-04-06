@@ -10,8 +10,11 @@ var App = {
       App.router.navigate($(e.currentTarget).attr('href').replace(/^\//, ''), { trigger: true });
     });
   },
+  readStorage: function() {
+    return JSON.parse(localStorage.getItem('sushiCart')) || [];
+  },
   updateStorage: function() {
-    localStorage.setItems('sushiCart', JSON.stringify(this.cart.toJSON()));
+    localStorage.setItem('sushiCart', JSON.stringify(this.cart.toJSON()));
   },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
@@ -21,7 +24,8 @@ var App = {
   init: function(menu) {
     this.menu = new Menu(menu);
     this.router = new Router();
-    this.cart = new CartItems();
+    this.cart = new CartItems(this.readStorage());
+    this.cart.updateValues();
     this.bindEvents();
     this.setupRouter();
   }
