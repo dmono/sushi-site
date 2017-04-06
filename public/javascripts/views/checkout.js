@@ -9,7 +9,7 @@ var CheckoutView = Backbone.View.extend({
   },
   render: function() {
     this.collection.updateValues();
-    
+
     this.$el.html(this.template({ total: this.collection.total }));
     this.collection.each(this.renderItem.bind(this));
     $('span.count').text(this.collection.quantity);

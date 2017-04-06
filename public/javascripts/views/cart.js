@@ -1,5 +1,5 @@
 var CartView = Backbone.View.extend({
-  el: $('div#cart')[0],
+  id: 'cart',
   template: App.templates.cart,
   events: {
     'click a.empty_cart': 'emptyCart',
@@ -10,7 +10,7 @@ var CartView = Backbone.View.extend({
     $('span.count').text('0');
     this.collection.trigger('empty');
   },
-  renderCart: function() {
+  render: function() {
     this.collection.updateValues();
 
     this.$el.html(this.template({ total: this.collection.total }));
@@ -24,11 +24,14 @@ var CartView = Backbone.View.extend({
 
     this.$('ul').append(cartItem.el);
   },
+  checkVisibility: function() {
+    if ($('#cart:hidden').length === 0 || this.collection.length > 0) {
+      this.$el.slideDown();
+    }
+  },
   initialize: function() {
-    this.renderCart();
-    this.listenTo(this.collection, 'update change reset', this.renderCart.bind(this));
-    // this.listenTo(this.collection, 'change', this.renderCart.bind(this));
-    // this.listenTo(this.collection, 'reset', this.renderCart.bind(this));
-    this.listenTo(this.collection, 'add', App.router.renderCart);
+    this.render();
+    this.listenTo(this.collection, 'update change reset', this.render.bind(this));
+    this.listenTo(this.collection, 'add', this.checkVisibility);
   },
 });

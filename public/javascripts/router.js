@@ -1,42 +1,53 @@
 var Router = Backbone.Router.extend({
   routes: {
-    'menu/:id': 'displayItem',
+    'menu/:id': 'displayMenuItem',
     'checkout': 'displayCheckout',
   },
   $content: $('#content'),
   index: function() {
-    // this.indexView = new IndexView();
-    // this.indexView.render();
-    this.renderItems();
-    this.renderCart();
-  },
-  renderItems: function() {
-    this.itemsView = new ItemsView({
+    this.indexView = new IndexView({
       collection: App.menu,
     });
 
-    this.$content.html(this.itemsView.el);
+    this.$content.html(this.indexView.el);
+
+    if (!this.cartView) {
+      this.renderCart();
+    }
   },
   renderCart: function() {
     this.cartView = new CartView({
       collection: App.cart,
     });
 
+    if ($('#cart').length > 0) {
+      $('#cart').replaceWith(this.cartView.el);
+    } else {
+      this.$content.before(this.cartView.el);
+    }
+
     if (App.cart.length > 0) {
-      $('#cart').slideDown();
+      this.cartView.checkVisibility();
     }
   },
-  displayItem: function(id) {
+  displayMenuItem: function(id) {
     this.detailsView = new ItemDetailsView({
       model: App.menu.get(id),
     });
 
     this.detailsView.render();
     this.$content.html(this.detailsView.el);
-    this.renderCart();
+
+    if (!this.cartView) {
+      this.renderCart();
+    }
   },
   displayCheckout: function() {
-    $('#cart').hide();
+    if (this.cartView) {
+      this.cartView.remove();
+      this.cartView = null;
+    }
+
     this.checkoutView = new CheckoutView({
       collection: App.cart,
     });
